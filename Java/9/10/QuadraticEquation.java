@@ -5,6 +5,7 @@ public class QuadraticEquation {
         this.a = a;
         this.b = b;
         this.c = c;
+        this.discriminant = Math.pow(b, 2)-(4*a*c);
     }
     public double getA() {
         return this.a;
@@ -16,12 +17,7 @@ public class QuadraticEquation {
         return this.c;
     }
     public double getDiscriminant() {
-        this.discriminant = Math.pow(this.b, 2)-(4*a*c);
-        if(this.discriminant >= 0) {
-            return this.discriminant;
-        }else {
-            return 0;
-        }
+		return this.discriminant;
     }
     public double getRoot1() {
         if(this.discriminant >= 0) {

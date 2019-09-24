@@ -24,17 +24,15 @@ public class QuadraticEquation {
         }
     }
     public double getRoot1() {
-        this.discriminant = Math.pow(this.b, 2)-(4*a*c);
         if(this.discriminant >= 0) {
-            return (Math.pow(Math.pow(this.b, 2)-(4*a*c), 0.5)-b)/(2*a);
+            return (Math.pow(this.discriminant, 0.5)-b)/(2*a);
         }else {
             return 0;
         }
     }
     public double getRoot2() {
-        this.discriminant = Math.pow(this.b, 2)-(4*a*c);
         if(this.discriminant >= 0) {
-            return (-Math.pow(Math.pow(this.b, 2)-(4*a*c), 0.5)-b)/(2*a);
+            return (-Math.pow(this.discriminant, 0.5)-b)/(2*a);
         }else {
             return 0;
         }

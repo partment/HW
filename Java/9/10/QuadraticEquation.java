@@ -17,7 +17,7 @@ public class QuadraticEquation {
         return this.c;
     }
     public double getDiscriminant() {
-		return this.discriminant;
+        return this.discriminant;
     }
     public double getRoot1() {
         if(this.discriminant >= 0) {

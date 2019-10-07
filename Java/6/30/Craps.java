@@ -13,21 +13,21 @@ public class Craps {
         return dice1 + dice2;
     }
     public static void main(String args[]) {
-        int end = 0;
+        boolean end = false;
         final Integer craps[] = {2, 3, 12};
         final Integer natural[] = {7, 11};
         Craps result = new Craps();
-        while(end == 0) {
+        while(!end) {
             result.Roll();
             int sum = result.Sum();
             if(Arrays.asList(craps).contains(sum)) {
                 System.out.println("You rolled "+result.dice1+" + "+result.dice2+" = "+result.Sum());
                 System.out.println("You lose");
-                end = 1;
+                end = true;
             }else if(Arrays.asList(natural).contains(sum)) {
                 System.out.println("You rolled "+result.dice1+" + "+result.dice2+" = "+result.Sum());
                 System.out.println("You win");
-                end = 1;
+                end = true;
             }else {
                 System.out.println("You rolled "+result.dice1+" + "+result.dice2+" = "+result.Sum());
                 System.out.println("Point is "+result.Sum());

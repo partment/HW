@@ -21,16 +21,16 @@ public class Craps {
             result.Roll();
             int sum = result.Sum();
             if(Arrays.asList(craps).contains(sum)) {
-                System.out.println("You rolled "+result.dice1+" + "+result.dice2+" = "+result.Sum());
+                System.out.println("You rolled "+result.dice1+" + "+result.dice2+" = "+sum);
                 System.out.println("You lose");
                 end = true;
             }else if(Arrays.asList(natural).contains(sum)) {
-                System.out.println("You rolled "+result.dice1+" + "+result.dice2+" = "+result.Sum());
+                System.out.println("You rolled "+result.dice1+" + "+result.dice2+" = "+sum);
                 System.out.println("You win");
                 end = true;
             }else {
-                System.out.println("You rolled "+result.dice1+" + "+result.dice2+" = "+result.Sum());
-                System.out.println("Point is "+result.Sum());
+                System.out.println("You rolled "+result.dice1+" + "+result.dice2+" = "+sum);
+                System.out.println("Point is "+sum);
             }
         }
     }

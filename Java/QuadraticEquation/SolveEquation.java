@@ -24,8 +24,8 @@ public class SolveEquation
         ComplexPair z = q.solveQuadratic( );
         System.out.println( q.getComment( ) );
         System.out.println( "Solutions: " + z + "\n" );
-        System.out.println("Do you want to try again? (y/n)");
-        conti = input.next().equals("n") ? 0 : 1;
+        System.out.println("Do you want to try again? (y/n Default : n)");
+        conti = input.next().equals("y") ? 1 : 0;
       }
     }catch (java.util.InputMismatchException e) {
       System.out.println("coefficient a b c only accept integer numbers.");

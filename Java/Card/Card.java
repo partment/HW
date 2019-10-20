@@ -1,7 +1,7 @@
 public class Card {
     private final int face;
     private final int suit;
-    private int dealed = 0;
+    private boolean dealed = false;
 
     public Card(int faceInput, int suitInput) {
         this.face = faceInput;
@@ -9,7 +9,7 @@ public class Card {
     }
 
     public void DealThisCard() {
-        this.dealed = 1;
+        this.dealed = true;
     }
 
     public int getFace() {
@@ -21,6 +21,6 @@ public class Card {
     }
 
     public boolean getSituation() {
-        return (this.dealed == 1) ? true : false;
+        return this.dealed;
     }
 }

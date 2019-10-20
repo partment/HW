@@ -14,7 +14,7 @@ public class CardUtils {
         int[] suits = {0, 1, 2, 3};
 
         for(int count = 0;count < this.deck.length;count++) {
-            deck[count] = new Card(count % 13, suits[count / 13]);
+            this.deck[count] = new Card(count % 13, suits[count / 13]);
         }
     }
 

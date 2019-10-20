@@ -1,6 +1,5 @@
 import java.security.SecureRandom;
 import java.util.Arrays;
-import java.util.ArrayList;
 
 public class CardUtils {
     private static final SecureRandom random = new SecureRandom();

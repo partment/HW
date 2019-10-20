@@ -70,6 +70,6 @@ public class CardUtils {
                 currentCompare++;
             }
         }
-        return "The winner is " + this.faces[this.deck[cards[currentBiggest]].getFace()] + " of " + this.suits[this.deck[cards[currentBiggest]].getSuit()];
+        return "The winner is Player" + (currentBiggest+1) + " (" + this.getCard(cards[currentBiggest]) + ")";
     }
 }

@@ -10,6 +10,6 @@ public class CardDriver {
 			System.out.println(myCard.getCard(cards[count]));
 		}
 		System.out.println("---------------------");
-		//myCard.getBiggest(cards[]);
+		System.out.println(myCard.getBigTwo(cards));
 	}
 }

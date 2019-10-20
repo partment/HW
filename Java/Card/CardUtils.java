@@ -1,4 +1,6 @@
 import java.security.SecureRandom;
+import java.util.Arrays;
+import java.util.ArrayList;
 
 public class CardUtils {
     private static final SecureRandom random = new SecureRandom();
@@ -42,16 +44,32 @@ public class CardUtils {
 
     public String getCard(int index) {
         if(this.deck[index].getSituation()) {
-            return faces[this.deck[index].getFace()] + " of " + suits[this.deck[index].getSuit()];
+            return this.faces[this.deck[index].getFace()] + " of " + this.suits[this.deck[index].getSuit()];
         }else {
             return "This card hasn't been dealed yet, can't show you.";
         }
     }
 
-    /*public String getBiggest(Integer cards[]) {
-        int currentbiggest = 0;
-        for(int count = 0;count < cards.length;count++) {
-            if(this.deck[cards[currentbiggest]].getFace())
+    public String getBigTwo(Integer cards[]) {
+        final String[] facesPriority = {"Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace", "Deuce"};    
+        final String[] suitsPriority = {"Diamonds", "Clubs", "Hearts", "Spades"}; 
+        int currentBiggest = 0;
+        int currentCompare = 1;
+        for(int count = 1;count < cards.length;count++) {
+            if(Arrays.asList(facesPriority).indexOf(this.faces[this.deck[cards[currentBiggest]].getFace()]) == Arrays.asList(facesPriority).indexOf(this.faces[this.deck[cards[currentCompare]].getFace()])) {
+                if(Arrays.asList(suitsPriority).indexOf(this.faces[this.deck[cards[currentBiggest]].getSuit()]) < Arrays.asList(suitsPriority).indexOf(this.faces[this.deck[cards[currentCompare]].getSuit()])) {
+                    currentBiggest = currentCompare;
+                    currentCompare++;
+                }else {
+                    currentCompare++;
+                }
+            }else if(Arrays.asList(facesPriority).indexOf(this.faces[this.deck[cards[currentBiggest]].getFace()]) < Arrays.asList(facesPriority).indexOf(this.faces[this.deck[cards[currentCompare]].getFace()])) {
+                currentBiggest = currentCompare;
+                currentCompare++;
+            }else {
+                currentCompare++;
+            }
         }
-    }*/
+        return "The winner is " + this.faces[this.deck[cards[currentBiggest]].getFace()] + " of " + this.suits[this.deck[cards[currentBiggest]].getSuit()];
+    }
 }

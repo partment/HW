@@ -77,7 +77,7 @@ public class CardUtils {
         final String[] facesPriority = {"Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace", "Deuce"};    
         final String[] suitsPriority = {"Diamonds", "Clubs", "Hearts", "Spades"}; 
 
-        //Starting to compare which player is the winner.
+        //Start to compare which player is the winner.
         int currentBiggest = 0;
         int currentCompare = 1;
         for(int count = 1;count < cards.length;count++) {
@@ -113,7 +113,7 @@ public class CardUtils {
             System.out.println("---------------------");
         }
 
-        //Starting to compare which player or players is the winner.
+        //Start to compare which player or players is the winner.
         int currentBiggest = 0;
         int currentCompare = 1;
         ArrayList<Integer> draw = new ArrayList<Integer>();
@@ -129,7 +129,7 @@ public class CardUtils {
                 currentCompare++;
             }
         }
-        
+
         //Start to print out result.
         if(draw.size() > 0) {
             System.out.print("We have " + draw.size() + " winner. ");

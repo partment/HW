@@ -1,5 +1,5 @@
 public class Card {
-    //Defined what state's a card has.
+    //Defined what states a card has.
     private final int face;
     private final int suit;
     private boolean dealed = false;

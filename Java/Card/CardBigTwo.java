@@ -1,4 +1,4 @@
-public class CardDriver {
+public class CardBigTwo {
     public static void main(String args[]) {
         CardUtils myCard = new CardUtils();
         System.out.println("---------------------");
@@ -7,7 +7,7 @@ public class CardDriver {
         System.out.println("---------------------");
         System.out.println("Shuffling This Deck of Cards...");
         System.out.println("---------------------");
-        myCard.ShuffleCards();
+        myCard.ShuffleCards(3);
         System.out.println("Dealing One Card to Each Player...");
         Integer cards[] = new Integer[4];
         System.out.println("---------------------");

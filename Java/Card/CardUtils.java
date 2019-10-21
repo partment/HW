@@ -114,7 +114,7 @@ public class CardUtils {
                 System.out.print("Player" + (draw.get(count)+1) + " ");
             }
         }else {
-            System.out.println("The winner is player" + (currentBiggest+1));
+            System.out.println("The winner is Player" + (currentBiggest+1));
         }
     }
 }

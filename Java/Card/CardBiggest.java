@@ -12,10 +12,10 @@ public class CardBiggest {
         Integer cards[][] = new Integer[4][13];
         System.out.println("---------------------");
         for(int player = 0;player < 4;player++) {
-        	for(int card = 0;card < 13;card++) {
-        		cards[player][card] = myCard.dealCard();
-            	System.out.println("Player" + (player+1) + " " +myCard.getCard(cards[player][card]));
-        	}
+            for(int card = 0;card < 13;card++) {
+                cards[player][card] = myCard.dealCard();
+                System.out.println("Player" + (player+1) + " " +myCard.getCard(cards[player][card]));
+            }
         }
         System.out.println("---------------------");
         myCard.getBiggest(cards);

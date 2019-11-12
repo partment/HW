@@ -18,10 +18,19 @@ public class PrimeNumber {
             if(i==0) {
                 array[i] = BigInteger.valueOf(1);
             }else {
-                array[i] = factorial(input-1).divide(factorial(i).multiply(factorial((input-1)-i)));
+                array[i] = combination(input-1, i);
             }
         }
         return array;
+    }
+
+    public static BigInteger combination(int n, int k) {
+    	BigInteger result = new BigInteger("1");
+    	for(int i=n;i>k;i--) {
+    		result = result.multiply(BigInteger.valueOf(i));
+    	}
+    	result = result.divide(factorial(n-k));
+    	return result;
     }
 
     public static BigInteger factorial(int input) {
@@ -43,6 +52,6 @@ public class PrimeNumber {
             System.out.println(n + " is not a prime number");
         }
         long etime = System.nanoTime() - stime;
-        System.out.println("Spent " + etime);
+        System.out.println("Spent " + (etime/Math.pow(10,9)) + " sec");
     }
 }

@@ -3,25 +3,11 @@ import java.util.Scanner;
 
 public class PrimeNumber {
     public static boolean isPrimeNumber(int n) {
-        BigInteger[] array = bionomial_coefficient(n+1);
-        for(BigInteger i : array) {
-            if(!i.equals(BigInteger.valueOf(1))) {
-                if(!i.mod(BigInteger.valueOf(n)).equals(BigInteger.valueOf(0))) return false;
-            }
+    	for(int i=1;i<((n+1)/2);i++) {
+            BigInteger combi = combination((n+1)-1, i);
+            if(!combi.mod(BigInteger.valueOf(n)).equals(BigInteger.valueOf(0))) return false;
         }
         return true;
-    }
-
-    public static BigInteger[] bionomial_coefficient(int input) {
-        BigInteger[] array = new BigInteger[input/2];
-        for(int i=0;i<(input/2);i++) {
-            if(i==0) {
-                array[i] = BigInteger.valueOf(1);
-            }else {
-                array[i] = combination(input-1, i);
-            }
-        }
-        return array;
     }
 
     public static BigInteger combination(int n, int k) {

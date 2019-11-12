@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class PrimeNumber {
     public static boolean isPrimeNumber(int n) {
     	for(int i=1;i<((n+1)/2);i++) {
-            BigInteger combi = combination((n+1)-1, i);
+            BigInteger combi = combination(n, i);
             if(!combi.mod(BigInteger.valueOf(n)).equals(BigInteger.valueOf(0))) return false;
         }
         return true;

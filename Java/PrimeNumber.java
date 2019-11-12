@@ -13,11 +13,9 @@ public class PrimeNumber {
     }
 
     public static BigInteger[] bionomial_coefficient(int input) {
-        BigInteger[] array = new BigInteger[input];
-        for(int i=0;i<input;i++) {
+        BigInteger[] array = new BigInteger[input/2];
+        for(int i=0;i<(input/2);i++) {
             if(i==0) {
-                array[i] = BigInteger.valueOf(1);
-            }else if(i==(input-1)) {
                 array[i] = BigInteger.valueOf(1);
             }else {
                 array[i] = factorial(input-1).divide(factorial(i).multiply(factorial((input-1)-i)));
@@ -38,10 +36,13 @@ public class PrimeNumber {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter what number you want to test:");
         int n = input.nextInt();
+        long stime = System.nanoTime();
         if(isPrimeNumber(n)) {
             System.out.println(n + " is a prime number");
         }else {
             System.out.println(n + " is not a prime number");
         }
+        long etime = System.nanoTime() - stime;
+        System.out.println("Spent " + etime);
     }
 }

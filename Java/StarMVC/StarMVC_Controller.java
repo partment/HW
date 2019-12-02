@@ -1,9 +1,9 @@
 public class StarMVC_Controller {
-	public StarMVC_Controller() {}
-	public String Forwarding(String input) {
-		StarMVC_Model model = new StarMVC_Model();
+    public StarMVC_Controller() {}
+    public String Forwarding(String input) {
+        StarMVC_Model model = new StarMVC_Model();
         String temp = "";
-		switch(input) {
+        switch(input) {
             case "A":
                 temp = model.Print(9);
                 break;
@@ -20,5 +20,5 @@ public class StarMVC_Controller {
                 temp = "Unknown input.";
         }
         return temp;
-	}
+    }
 }

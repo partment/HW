@@ -15,13 +15,13 @@ public class StarMVC_View {
         JLabel resultlabel = new JLabel("Result : ");
 
         enter.addActionListener(new ActionListener() {        
-    		public void actionPerformed(ActionEvent e) {
-    			String alphabet = input.getText();
-         		StarMVC_Controller controller = new StarMVC_Controller();
-        		String result = controller.Forwarding(alphabet);
-        		resultlabel.setText("Result : "+result);
-    		}
-		}); 
+            public void actionPerformed(ActionEvent e) {
+                String alphabet = input.getText();
+                StarMVC_Controller controller = new StarMVC_Controller();
+                String result = controller.Forwarding(alphabet);
+                resultlabel.setText("Result : "+result);
+            }
+        }); 
 
         star.add(label);
         star.add(input);

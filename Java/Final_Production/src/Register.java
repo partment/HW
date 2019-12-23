@@ -6,9 +6,9 @@ public class Register {
     public void entrance() {
         Database database = new Database();
         System.out.print("Please enter your membership id : ");
-        String id = input.next();
+        String id = input.nextLine();
         System.out.print("Please enter your address : ");
-        String address = input.next();
+        String address = input.nextLine();
         database.register(id, address);
     }
 }

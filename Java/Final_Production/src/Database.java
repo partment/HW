@@ -101,7 +101,7 @@ public class Database {
     	try {
             Class.forName("org.sqlite.JDBC");
             this.con = DriverManager.getConnection("jdbc:sqlite:data.db");
-            String findOrder = "select * from orderlist where member = ?;";
+            String findOrder = "select * from orderlist where member = ? order by id asc;";
             this.pstmt = this.con.prepareStatement(findOrder);
             this.pstmt.setString(1, memberID);
             ResultSet exists = this.pstmt.executeQuery();
@@ -138,7 +138,7 @@ public class Database {
     	try {
             Class.forName("org.sqlite.JDBC");
             this.con = DriverManager.getConnection("jdbc:sqlite:data.db");
-            String findOrder = "select * from orderlist;";
+            String findOrder = "select * from orderlist order by id asc;";
             this.pstmt = this.con.prepareStatement(findOrder);
             ResultSet exists = this.pstmt.executeQuery();
             System.out.println("------------------");

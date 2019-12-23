@@ -10,11 +10,11 @@ public class Main {
             System.out.println("(2) Register");
             System.out.println("(3) Order Management");
             System.out.println("(4) Exit");
-            switch(input.next()) {
+            switch(input.nextLine()) {
                 case "1":
                     System.out.print("Please enter your membership id : ");
                     Order order = new Order();
-                    order.entrance(input.next());
+                    order.entrance(input.nextLine());
                     break;
                 case "2":
                     Register register = new Register();

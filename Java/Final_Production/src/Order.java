@@ -50,6 +50,11 @@ public class Order {
     	JSONObject product = new JSONObject();
         System.out.print("Enter what you want to buy : ");
         String name = this.input.nextLine();
+        //prevent empty name
+        while(name.equals("")) {
+        	System.out.print("Enter what you want to buy : ");
+        	name = this.input.nextLine();
+        }
         //is a cake?
         if(this.isCake(name)) {
             product.put("name", name);
@@ -58,7 +63,12 @@ public class Order {
             this.input.nextLine();
             //If so ask for custom message
             System.out.print("Enter custom message : ");
-            product.put("message", this.input.nextLine());
+            String message = this.input.nextLine();
+            //prevent empty message
+            while(message.equals("")) {
+            	message = this.input.nextLine();
+            }
+            product.put("message", message);
         }else {
             product.put("name", name);
             System.out.print("Do you want to buy by quantity? (y/n): ");

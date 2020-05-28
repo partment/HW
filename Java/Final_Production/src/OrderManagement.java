@@ -1,13 +1,12 @@
 import java.util.Scanner;
 
-public class OrderManagement {
+public class OrderManagement extends Database {
 	private Scanner input = new Scanner(System.in);
-	private Database database = new Database();
 	public OrderManagement() {};
 	public void entrance() {
 		System.out.print("Please enter your membership id : ");
 		String id = input.next();
-        if(this.database.isIDexists(id)) {
+        if(isIDexists(id)) {
             boolean exit = false;
             while(!exit) {
                 System.out.println("Please choose what you want to do.");
@@ -16,10 +15,10 @@ public class OrderManagement {
                 System.out.println("(3) Exit");
                 switch(this.input.next()) {
                     case "1":
-                    	this.database.printOrderbyMember(id);
+                    	printOrderbyMember(id);
                         break;
                     case "2":
-                    	this.database.printOrderAll();
+                    	printOrderAll();
                         break;
                     case "3":
                     	exit = true;

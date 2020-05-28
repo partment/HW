@@ -2,13 +2,12 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 import java.util.Scanner;
 
-public class Order {
+public class Order extends Database {
     private JSONArray orderlist = new JSONArray();
     private Scanner input = new Scanner(System.in);
-    Database database = new Database();
     public Order() {}
     public void entrance(String id) {
-        if(this.database.isIDexists(id)) {
+        if(isIDexists(id)) {
             boolean exit = false;
             while(!exit) {
                 System.out.println("Please choose what you want to do.");
@@ -114,7 +113,7 @@ public class Order {
             String choice = this.input.nextLine();
             if(choice.equals("y") || choice.equals("")) {
                 //Insert the order
-                String orderid = this.database.insertOrder(this.orderlist.toString(), id, total);
+                String orderid = insertOrder(this.orderlist.toString(), id, total);
                 System.out.println("Order has placed! Order id : "+orderid);
                 return true;
             }else {

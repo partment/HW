@@ -72,7 +72,7 @@ int main() {
                 }
                 if(finish[j] == 1) {
                     for (int i = 0; i < 3; i++) {
-                        available[i] += max[j][i]; //釋放資源
+                        available[i] += alloc[j][i]; //釋放資源
                     }
                     if(k == 2) {
                         j = -1; //回Process 1號開始判斷（從頭開始）

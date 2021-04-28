@@ -141,11 +141,11 @@ int main() {
                     }else { //如果需求小於等於可用
                         finish[possibilities[j][k]] = 1;
                     }
-                    if(finish[possibilities[j][k]] == 1) {
-                        for (int i = 0; i < 3; i++) {
-                            available[i] += max[possibilities[j][k]][i]; //釋放資源
-                        }
-                    }
+                }
+            }
+            if(finish[possibilities[j][k]] == 1) {
+                for (int i = 0; i < 3; i++) {
+                    available[i] += alloc[possibilities[j][k]][i]; //釋放資源
                 }
             }
         }

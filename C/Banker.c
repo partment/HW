@@ -76,6 +76,9 @@ int main() {
                 }else { //如果需求小於等於可用
                     finish[j] = 1;
                 }
+                if(k == 2) {
+                    j = -1; //從頭開始
+                }
             }
         }
         if(finish[j] == 1) {

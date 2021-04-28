@@ -88,6 +88,7 @@ int main() {
             }
         }
     }
+    
     //全部finish = 1才算安全
     int safe = 0;
     for(int i = 0;i < process_count;i++) {

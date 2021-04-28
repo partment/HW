@@ -64,7 +64,9 @@ int main() {
 
     //判斷系統是否安全
     int finish[PROC_MAX_COUNT];
+    int visited[PROC_MAX_COUNT];
     for(int i = 0;i < process_count;i++) {
+        visited[i] = 0;
         finish[i] = 0; //Initialize
     }
     for(int j = 0;j < process_count;j++) {
@@ -76,14 +78,15 @@ int main() {
                 }else { //如果需求小於等於可用
                     finish[j] = 1;
                 }
+                if(finish[j] == 1 && visited[j] == 0) {
+                    visited[j] = 1;
+                    for (int i = 0; i < 3; i++) {
+                        available[i] += alloc[j][i]; //釋放資源
+                    }
+                }
                 if(k == 2) {
                     j = -1; //從頭開始
                 }
-            }
-        }
-        if(finish[j] == 1) {
-            for (int i = 0; i < 3; i++) {
-                available[i] += alloc[j][i]; //釋放資源
             }
         }
     }

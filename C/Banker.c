@@ -6,6 +6,7 @@ int factorial(int n);
 
 int main() {
 
+    //設定Process的數量
     int process_count;
     printf("請輸入Process數量（最多%d）：", PROC_MAX_COUNT);
     scanf("%d", &process_count);
@@ -15,14 +16,16 @@ int main() {
         scanf("%d", &process_count);
     }
 
-    int factorial_num = factorial(process_count);
+    int factorial_num = factorial(process_count); //利用階乘求順序的總數
 
+    //設定各類資源的數量
     int instances[3];
     for (int i = 0; i < 3; i++) {
         printf("請輸入%c類資源的instance數量：", 65 + i);
         scanf("%d", &instances[i]);
     }
 
+    //設定各Process的最大需求數量
     int max[PROC_MAX_COUNT][3];
     for (int j = 0; j < process_count; j++) {
         for (int k = 0; k < 3; k++) {
@@ -31,6 +34,7 @@ int main() {
         }
     }
 
+    //設定各Process已佔用的資源數量
     int alloc[PROC_MAX_COUNT][3];
     for (int j = 0; j < process_count; j++) {
         for (int k = 0; k < 3; k++) {
@@ -39,6 +43,7 @@ int main() {
         }
     }
 
+    //算快照時的資源可用數
     int available[3];
     for (int i = 0; i < 3; i++) {
         available[i] = instances[i]; //將instances之值複製至available
@@ -49,10 +54,11 @@ int main() {
         }
     }
 
+    //算出需求矩陣
     int need[PROC_MAX_COUNT][3];
     for (int j = 0; j < process_count; j++) {
         for (int k = 0; k < 3; k++) {
-            need[j][k] = max[j][k] - alloc[j][k]; //算出需求矩陣
+            need[j][k] = max[j][k] - alloc[j][k]; //需求 = 最大 - 已佔用
         }
     }
 
@@ -82,6 +88,7 @@ int main() {
         }
     }
 
+    //全部finish = 1才算安全
     int safe = 0;
     for(int i = 0;i < process_count;i++) {
         if(finish[i] == 1) {
@@ -112,11 +119,11 @@ int main() {
     int *possibilities_ptr = possibilities[0];
     int counter = 0;
     int *counter_ptr = &counter;
-    permute(process, possibilities_ptr, 0, process_count, counter_ptr);
+    permute(process, possibilities_ptr, 0, process_count, counter_ptr); //開始排列所有可能的順序
 
     int safe_counter = 0;
  
-    //Start to evaluate all permutation
+    //Start to evaluate all permutations
     printf("以下的順序是安全的\n\n");
     for(int j = 0; j < factorial_num;j++) {
         //Initialize finish and available
@@ -131,9 +138,10 @@ int main() {
                 available[k] -= alloc[p][k]; //將instances減去已佔用的資源得到available
             }
         }
+
         //Start to evaluate this sequence is safe or not  
         for(int k = 0;k < process_count;k++) {
-            if(finish[possibilities[j][k]] == 0) {
+            if(finish[possibilities[j][k]] == 0) { //j = one of permutations, k = one of process in this permutation
                 for (int p = 0; p < 3; p++) {
                     if(need[possibilities[j][k]][p] > available[p]) { //如果需求大於可用
                         finish[possibilities[j][k]] = 0;
@@ -149,6 +157,8 @@ int main() {
                 }
             }
         }
+
+        //在這個permutation當中的所有Process其finish = 1才算安全
         safe = 0;
         for(int i = 0;i < process_count;i++) {
             if(finish[i] == 1) {

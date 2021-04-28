@@ -76,14 +76,11 @@ int main() {
                 }else { //如果需求小於等於可用
                     finish[j] = 1;
                 }
-                if(finish[j] == 1) {
-                    for (int i = 0; i < 3; i++) {
-                        available[i] += alloc[j][i]; //釋放資源
-                    }
-                    if(k == 2) {
-                        j = -1; //回Process 1號開始判斷（從頭開始）
-                    }
-                }
+            }
+        }
+        if(finish[j] == 1) {
+            for (int i = 0; i < 3; i++) {
+                available[i] += alloc[j][i]; //釋放資源
             }
         }
     }

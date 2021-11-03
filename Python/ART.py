@@ -65,13 +65,13 @@ class ART:
     for i in identifier:
       v = (self.Wb[:,i]*X).sum()/X.sum() # Likelihood value
       if v >= self.rho:
-          self.Wb[:,i] *= X # New likelihood
+          self.Wb[:,i] *= X # New match value
           self.Wf[i,:] = self.Wb[:,i]/(self.beta+self.Wb[:,i].sum()) # New match value
           return self.Wb[:,i], i # Match old identifier
 
     if self.active < self.F2.size:
       i = self.active
-      self.Wb[:,i] *= X # New likelihood
+      self.Wb[:,i] *= X # New match value
       self.Wf[i,:] = self.Wb[:,i]/(self.beta+self.Wb[:,i].sum()) # New match value
       self.active += 1 # New identifier
       return self.Wb[:,i], i

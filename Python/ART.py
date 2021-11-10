@@ -47,6 +47,10 @@ class ART:
 
     self.Wf = np.random.random((m,n))
 
+    #self.Wb = np.full((n,m), 1)
+
+    #self.Wf = np.full((m,n), 1/(1+n))
+
     self.rho = float(rho)
 
     self.beta = L - 1

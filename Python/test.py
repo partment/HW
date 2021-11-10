@@ -22,7 +22,7 @@ def print_letter(Z):
         print( )
 
 if __name__ == '__main__':
-    network = ART(n=6*7, m=10, L=1.5, rho=0.45)
+    network = ART(n=6*7, m=10, L=1.5, rho=0.5)
     
     A1 = letter_to_array( [' #### ',
                            '#    #',
@@ -64,7 +64,15 @@ if __name__ == '__main__':
                            '#    #',
                            '#    #'] )
 
-    samples = [A1,B1,A2,B2,A3]
+    C1 = letter_to_array( ['######',
+                           '#     ',
+                           '#     ',
+                           '#     ',
+                           '#     ',
+                           '#     ',
+                           '######'] )
+
+    samples = [A1,B1,A2,B2,A3,C1]
 
     for i in range(len(samples)):
         Z, k = network.learn(samples[i].ravel())

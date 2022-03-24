@@ -25,7 +25,7 @@ int main() {
     printf("It is a prime number.\n");
     factor[number].value += 1;
   }else {
-      printf("It is not a prime number.\n");
+    printf("It is not a prime number.\n");
     if (number == 2 || number == 3) {
       factor[number].value += 1;
     }else {
